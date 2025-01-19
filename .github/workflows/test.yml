@@ -37,7 +37,7 @@ jobs:
       - name: Run TypeScript compile check
         run: |
           echo "Running TypeScript compiler to check for type issues..."
-          npn run types:check
+          npm run types:check
 
       - name: Run Playwright API tests
         run: |

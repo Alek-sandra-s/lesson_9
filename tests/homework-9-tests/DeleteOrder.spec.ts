@@ -2,7 +2,9 @@ import { expect, test } from '@playwright/test'
 
 import { StatusCodes } from 'http-status-codes'
 
-test('Valid order ID and API key deletes an order and returns status code "NO_CONTENT" ', async ({ request }) => {
+test('Valid order ID and API key deletes an order and returns status code "NO_CONTENT" ', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '1234567890123456',
   }
@@ -21,7 +23,9 @@ test('Valid order ID and API key deletes an order and returns status code "NO_CO
   expect(response.status()).toBe(StatusCodes.NO_CONTENT)
 })
 
-test('Invalid order ID with special characters and valid API key does not delete an order and returns status code "BAD_REQUEST"', async ({ request }) => {
+test('Invalid order ID with special characters and valid API key does not delete an order and returns status code "BAD_REQUEST"', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '1234567890123456',
   }
@@ -40,7 +44,9 @@ test('Invalid order ID with special characters and valid API key does not delete
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 
-test('Valid order ID and invalid API key does not delete an order and returns status code "UNAUTHORIZED" (401', async ({ request }) => {
+test('Valid order ID and invalid API key does not delete an order and returns status code "UNAUTHORIZED" (401', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: 'fhdjsksss',
   }
@@ -59,7 +65,9 @@ test('Valid order ID and invalid API key does not delete an order and returns st
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
 
-test('Valid order ID and empty API key does not delete an order and returns status code "UNAUTHORIZED" (401)', async ({ request }) => {
+test('Valid order ID and empty API key does not delete an order and returns status code "UNAUTHORIZED" (401)', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '',
   }
@@ -78,7 +86,9 @@ test('Valid order ID and empty API key does not delete an order and returns stat
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
 
-test('Empty order ID and valid API key does not delete an order and returns status code "METHOD_NOT_ALLOWED" (405)', async ({ request }) => {
+test('Empty order ID and valid API key does not delete an order and returns status code "METHOD_NOT_ALLOWED" (405)', async ({
+  request,
+}) => {
   const requestHeaders = {
     api_key: '1234567890123456',
   }
