@@ -5,11 +5,9 @@
   "scripts": {
     "prettier:format": "prettier --write \"tests/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "prettier:check": "prettier --check \"tests/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "types:check": "npx tsc --noEmit",
     "lint": "eslint tests",
-    "test": "npx playwright test",
-    "test: delete order": "npx playwright ./tests/homework-9-tests/DeleteOrder.spec.ts",
-    "test: get API key": "npx playwright ./tests/homework-9-tests/GetApiKey.spec.ts",
-    "test: update order": "npx playwright ./tests/homework-9-tests/UpdateOrder.spec.ts"
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "",
