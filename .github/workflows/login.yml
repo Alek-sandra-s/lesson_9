@@ -1,9 +1,9 @@
-name: Default
+name: Login tests
 
 on:
   push:
     branches:
-      [develop, master]
+      [master, develop]
   pull_request:
     branches:
       - master
@@ -26,20 +26,20 @@ jobs:
 
       - name: Run Prettier check
         run: |
-            echo "Running Prettier to check for formatting issues..."
-            npm run prettier:check
-
+          echo "Running Prettier to check for formatting issues..."
+          npm run prettier:check
       - name: Run ESLint check
         run: |
-            echo "Running ESLint to check for linting issues..."
-            npm run lint 
-
+          echo "Running ESLint to check for linting issues..."
+          npm run lint
       - name: Run TypeScript compile check
         run: |
           echo "Running TypeScript compiler to check for type issues..."
           npm run types:check
-
       - name: Run Playwright API tests
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Running Playwright to execute API tests..."
-          npm test:rest
+          npm run test:login
