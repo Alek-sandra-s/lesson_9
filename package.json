@@ -7,7 +7,9 @@
     "prettier:check": "prettier --check \"tests/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "types:check": "npx tsc --noEmit",
     "lint": "eslint tests",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "test:login": "playwright test --grep 'Login tests'",
+    "test:rest": "npx playwright test --grep-invert 'Login tests'"
   },
   "keywords": [],
   "author": "",
