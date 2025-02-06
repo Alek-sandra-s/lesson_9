@@ -8,8 +8,8 @@
     "types:check": "npx tsc --noEmit",
     "lint": "eslint tests",
     "test": "npx playwright test",
-    "test:login": "playwright test --grep 'Login tests|Test without API client'",
-    "test:rest": "playwright test --grep-invert 'Login tests|Test without API client'"
+    "test:login": "playwright test --grep 'Login tests|Tests without API client|Tests with API client'",
+    "test:rest": "playwright test --grep-invert 'Login tests|Tests without API client|Tests with API client'"
   },
   "keywords": [],
   "author": "",
