@@ -7,9 +7,12 @@
     "prettier:check": "prettier --check \"tests/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "types:check": "npx tsc --noEmit",
     "lint": "eslint tests",
+    "dev": "tsx src/index.ts",
     "test": "npx playwright test",
-    "test:login": "playwright test --grep 'Login tests'",
-    "test:rest": "npx playwright test --grep-invert 'Login tests'"
+    "test:userManagementEmpty": "playwright test --grep 'User management app tests for empty array' --workers=1",
+    "test:userManagement": "playwright test --grep 'User management app tests for create, find and delete users' --workers=1",
+    "test:userManagementEmptyApiClient": "playwright test --grep 'User management app tests for empty array with API client' --workers=1",
+    "test:userManagementApiClient": "playwright test --grep 'User management app tests for create, find and delete users with API client' --workers=1"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +20,17 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.12.0",
+    "@faker-js/faker": "^9.4.0",
     "@playwright/test": "^1.48.0",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.7.5",
     "eslint": "^9.12.0",
+    "express": "^4.21.2",
     "globals": "^15.11.0",
     "http-status-codes": "^2.3.0",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.1.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.8.1"
   }
