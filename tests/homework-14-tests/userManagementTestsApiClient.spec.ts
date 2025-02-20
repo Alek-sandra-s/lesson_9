@@ -42,9 +42,10 @@ test.describe('User management app tests for create, find and delete users with 
     const apiClient = new ApiClientUserManagement(request)
     await apiClient.deleteAllUsers()
 
-    await apiClient.createUserAndReturnUserId()
-    await apiClient.createUserAndReturnUserId()
-    await apiClient.createUserAndReturnUserId()
+    for (let i = 0; i < 3; i = i + 1) {
+      await apiClient.createUserAndReturnUserId()
+    }
+
     const allUsers = await apiClient.searchUsers()
 
     expect(allUsers.length).toBe(3)

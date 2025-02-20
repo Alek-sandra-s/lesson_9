@@ -1,5 +1,8 @@
-import { APIRequestContext, APIResponse } from 'playwright-core'
+import { APIRequestContext } from 'playwright-core'
 import { UserDTO } from '../tests/DTO/UserDto'
+
+const baseUrl = 'http://localhost:3000';
+const userPath = 'users'
 
 export class ApiClientUserManagement {
   static instance: ApiClientUserManagement;
@@ -10,13 +13,13 @@ export class ApiClientUserManagement {
   }
 
   public async createUserAndReturnUserId(): Promise<UserDTO>{
-    const response = await this.request.post('http://localhost:3000/users')
+    const response = await this.request.post(`${baseUrl}/${userPath}`)
     const responseBody = await response.json()
     return UserDTO.serializeResponse(responseBody)
   }
 
   public async deleteUser(userId: number): Promise<UserDTO>{
-    const response = await this.request.delete(`http://localhost:3000/users/${userId}`)
+    const response = await this.request.delete(`${baseUrl}/${userPath}/${userId}`)
     return UserDTO.serializeResponse((await response.json())[0])
   }
 
@@ -29,12 +32,12 @@ export class ApiClientUserManagement {
   }
 
   public async searchUser(userId: number): Promise<UserDTO> {
-    const response = await this.request.get(`http://localhost:3000/users/${userId}`)
+    const response = await this.request.get(`${baseUrl}/${userPath}/${userId}`)
     return UserDTO.serializeResponse(await response.json())
   }
 
   public async searchUsers(): Promise<UserDTO[]>{
-    const response =  await this.request.get('http://localhost:3000/users')
+    const response =  await this.request.get(`${baseUrl}/${userPath}`)
 
     const result = []
 
