@@ -10,7 +10,9 @@
     "dev": "tsx src/index.ts",
     "test": "npx playwright test",
     "test:userManagementEmpty": "playwright test --grep 'User management app tests for empty array' --workers=1",
-    "test:userManagement": "playwright test --grep 'User management app tests for create, find and delete users' --workers=1"
+    "test:userManagement": "playwright test --grep 'User management app tests for create, find and delete users' --workers=1",
+    "test:userManagementEmptyApiClient": "playwright test --grep 'User management app tests for empty array with API client' --workers=1",
+    "test:userManagementApiClient": "playwright test --grep 'User management app tests for create, find and delete users with API client' --workers=1"
   },
   "keywords": [],
   "author": "",

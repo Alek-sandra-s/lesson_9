@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - master
+      - feat/as/homework-13
 
 jobs:
   format-lint-test:
@@ -54,3 +55,13 @@ jobs:
         run: |
           echo "Running Playwright to execute local API tests..."
           npm run test:userManagement
+
+      - name: Run user management test for empty array
+        run: |
+          echo "Running Playwright to execute local API tests..."
+          npm run test:userManagementEmptyApiClient
+
+      - name: Run user management test for empty array
+        run: |
+          echo "Running Playwright to execute local API tests..."
+          npm run test:userManagementApiClient
